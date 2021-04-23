@@ -13,7 +13,7 @@ namespace snake
 {
     public partial class Form2: Form
     {
-        bool flag = false;
+        bool flag = true;
         public Form2()
         {
             InitializeComponent();
