@@ -13,6 +13,7 @@ namespace snake
 {
     public partial class Form2: Form
     {
+        bool flag = false;
         public Form2()
         {
             InitializeComponent();
@@ -27,10 +28,21 @@ namespace snake
 
         private void Records_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = (timer1.Enabled) ? false : true;
-            if (timer1.Enabled == true)
+            timer2.Enabled = (timer2.Enabled) ? false : true;
+            if (timer2.Enabled == true)
             {
-                recBox.Text = File.ReadAllText("Records.txt");
+                switch (flag)
+                {
+                    case true:
+                        SaveFileDialog saveFileDialog = new SaveFileDialog();
+                        File.WriteAllText("Rec", recBox.Text);
+                        flag = false;
+                        break;
+                    case false:
+                        recBox.Text = File.ReadAllText("Rec");
+                        break;
+
+                }
                 recBox.Visible = true;
             }
             else
@@ -44,12 +56,11 @@ namespace snake
             timer1.Enabled = (timer1.Enabled) ? false : true;
             if (timer1.Enabled == true)
             {
-                recBox.Text = File.ReadAllText("About.txt");
-                recBox.Visible = true;
+                aBox.Visible = true;
             }
             else
             {
-                recBox.Visible = false;
+                aBox.Visible = false;
             }
         }
 

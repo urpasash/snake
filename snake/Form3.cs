@@ -20,7 +20,7 @@ namespace snake
 
         private void ok_Click(object sender, EventArgs e)
         {
-            using (StreamWriter incdate = File.AppendText("Records.txt"))
+            using (StreamWriter incdate = File.AppendText("Rec"))
             {
                 incdate.Write(textBox1.Text);
             }
@@ -31,7 +31,7 @@ namespace snake
 
         private void delete_Click(object sender, EventArgs e)
         {
-            File.WriteAllText("Records.txt", string.Empty);
+            File.WriteAllText("Rec", string.Empty);
 
         }
     }

@@ -34,9 +34,11 @@
             this.Records = new System.Windows.Forms.Button();
             this.About = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
-            this.recBox = new System.Windows.Forms.TextBox();
+            this.aBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.recBox = new System.Windows.Forms.TextBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,15 +82,16 @@
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // recBox
+            // aBox
             // 
-            this.recBox.Enabled = false;
-            this.recBox.Location = new System.Drawing.Point(383, 180);
-            this.recBox.Multiline = true;
-            this.recBox.Name = "recBox";
-            this.recBox.Size = new System.Drawing.Size(172, 282);
-            this.recBox.TabIndex = 4;
-            this.recBox.Visible = false;
+            this.aBox.Enabled = false;
+            this.aBox.Location = new System.Drawing.Point(383, 180);
+            this.aBox.Multiline = true;
+            this.aBox.Name = "aBox";
+            this.aBox.Size = new System.Drawing.Size(172, 282);
+            this.aBox.TabIndex = 4;
+            this.aBox.Text = resources.GetString("aBox.Text");
+            this.aBox.Visible = false;
             // 
             // pictureBox1
             // 
@@ -105,6 +108,16 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // recBox
+            // 
+            this.recBox.Enabled = false;
+            this.recBox.Location = new System.Drawing.Point(383, 180);
+            this.recBox.Multiline = true;
+            this.recBox.Name = "recBox";
+            this.recBox.Size = new System.Drawing.Size(172, 282);
+            this.recBox.TabIndex = 6;
+            this.recBox.Visible = false;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,6 +127,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(690, 611);
             this.Controls.Add(this.recBox);
+            this.Controls.Add(this.aBox);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.About);
             this.Controls.Add(this.Records);
@@ -137,8 +151,10 @@
         private System.Windows.Forms.Button Records;
         private System.Windows.Forms.Button About;
         private System.Windows.Forms.Button Exit;
-        private System.Windows.Forms.TextBox recBox;
+        private System.Windows.Forms.TextBox aBox;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox recBox;
+        private System.Windows.Forms.Timer timer2;
     }
 }

@@ -143,7 +143,7 @@ namespace snake
                 if (result == DialogResult.Yes)
                 {
                      Application.Exit();
-                    using (StreamWriter txt = File.AppendText("Records.txt"))
+                    using (StreamWriter txt = File.AppendText("Rec"))
                     {
                         txt.WriteLine("   Score: " + score, '\n');
                     }
@@ -151,7 +151,7 @@ namespace snake
                 else
                 {
                     Application.Restart();
-                    using (StreamWriter txt = File.AppendText("Records.txt"))
+                    using (StreamWriter txt = File.AppendText("Rec"))
                     {
                         txt.WriteLine("   Score: " + score, '\n'); ;
                     }
@@ -168,7 +168,7 @@ namespace snake
                         if (result == DialogResult.Yes)
                         {
                             Application.Exit();
-                            using (StreamWriter txt = File.AppendText("Records.txt"))
+                            using (StreamWriter txt = File.AppendText("Rec"))
                             {
                                 txt.WriteLine("   Score: " + score, '\n');
                             }
@@ -176,7 +176,7 @@ namespace snake
                         else
                         {
                             Application.Restart();
-                            using (StreamWriter txt = File.AppendText("Records.txt"))
+                            using (StreamWriter txt = File.AppendText("Rec"))
                             {
                                 txt.WriteLine("   Score: " + score, '\n');
                             }
