@@ -13,7 +13,7 @@ namespace snake
 {
     public partial class Form2: Form
     {
-        bool flag = true;
+        bool flag;
         public Form2()
         {
             InitializeComponent();
@@ -34,9 +34,8 @@ namespace snake
                 switch (flag)
                 {
                     case true:
-                        SaveFileDialog saveFileDialog = new SaveFileDialog();
-                        File.WriteAllText("Rec", recBox.Text);
                         flag = false;
+                        File.WriteAllText("Rec",recBox.Text);
                         break;
                     case false:
                         recBox.Text = File.ReadAllText("Rec");

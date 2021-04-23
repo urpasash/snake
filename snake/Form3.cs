@@ -20,9 +20,11 @@ namespace snake
 
         private void ok_Click(object sender, EventArgs e)
         {
+            //FileStream fstream = File.Open("Rec",FileMode.OpenOrCreate);
+            //fstream.Close();
             using (StreamWriter incdate = File.AppendText("Rec"))
             {
-                incdate.Write(textBox1.Text);
+                 incdate.Write(textBox1.Text);
             }
             Form1 frm = new Form1();
             frm.Show();
