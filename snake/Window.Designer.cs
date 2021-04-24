@@ -1,6 +1,6 @@
 ﻿namespace snake
 {
-    partial class Form2
+    partial class Window
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Window));
             this.NewGame = new System.Windows.Forms.Button();
             this.Records = new System.Windows.Forms.Button();
             this.About = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
-            this.aBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.recBox = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.recBox = new System.Windows.Forms.RichTextBox();
+            this.aBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,17 +82,6 @@
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // aBox
-            // 
-            this.aBox.Enabled = false;
-            this.aBox.Location = new System.Drawing.Point(383, 180);
-            this.aBox.Multiline = true;
-            this.aBox.Name = "aBox";
-            this.aBox.Size = new System.Drawing.Size(172, 282);
-            this.aBox.TabIndex = 4;
-            this.aBox.Text = resources.GetString("aBox.Text");
-            this.aBox.Visible = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Green;
@@ -110,15 +99,25 @@
             // 
             // recBox
             // 
-            this.recBox.Enabled = false;
-            this.recBox.Location = new System.Drawing.Point(383, 180);
-            this.recBox.Multiline = true;
+            this.recBox.Location = new System.Drawing.Point(272, 184);
             this.recBox.Name = "recBox";
-            this.recBox.Size = new System.Drawing.Size(172, 282);
-            this.recBox.TabIndex = 6;
-            this.recBox.Visible = false;
+            this.recBox.ReadOnly = true;
+            this.recBox.Size = new System.Drawing.Size(108, 223);
+            this.recBox.TabIndex = 7;
+            this.recBox.Text = "";
             // 
-            // Form2
+            // aBox
+            // 
+            this.aBox.Location = new System.Drawing.Point(397, 184);
+            this.aBox.Name = "aBox";
+            this.aBox.ReadOnly = true;
+            this.aBox.Size = new System.Drawing.Size(181, 223);
+            this.aBox.TabIndex = 8;
+            this.aBox.Text = "Игра \"Змейка\"\nЦель игры:\nЦель игры состоит в том, чтобы ползая по игровому полю с" +
+    "обрать как можно больше еды.\nУправление:\nW - движение вперед\nA - движение влево\n" +
+    "S - движение вниз\nD - движение вправо\n";
+            // 
+            // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,8 +125,8 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(690, 611);
-            this.Controls.Add(this.recBox);
             this.Controls.Add(this.aBox);
+            this.Controls.Add(this.recBox);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.About);
             this.Controls.Add(this.Records);
@@ -136,7 +135,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form2";
+            this.Name = "Window";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Snake";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -151,10 +150,10 @@
         private System.Windows.Forms.Button Records;
         private System.Windows.Forms.Button About;
         private System.Windows.Forms.Button Exit;
-        private System.Windows.Forms.TextBox aBox;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox recBox;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.RichTextBox recBox;
+        private System.Windows.Forms.RichTextBox aBox;
     }
 }

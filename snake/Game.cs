@@ -11,27 +11,27 @@ using System.Windows.Forms;
 
 namespace snake
 {
-    public partial class Form1 : Form
+    public partial class Game : Form
     {
         Point[] snake;
         Point food;
-        int l;
+        int lengthsnake;
         string way;
-        int s = 40;
+        int sizesnake = 40;
         int score = 0;
-        public Form1()
+        public Game()
         {
             InitializeComponent();
             way = "UP";
-            l = 3;
+            lengthsnake = 3;
             snake = new Point[300];
-            for (int i = 0; i < l; i++)
+            for (int i = 0; i < lengthsnake; i++)
             {
                 snake[i].X = 400;
-                snake[i].Y = 400 - i * s;
+                snake[i].Y = 400 - i * sizesnake;
             }
-            food.X = s;
-            food.Y = s;
+            food.X = sizesnake;
+            food.Y = sizesnake;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -81,11 +81,11 @@ namespace snake
             gr.DrawLine(p, p3, p4); 
             gr.DrawLine(p, p4, p1);
             Graphics Food = e.Graphics;
-            Food.FillEllipse(new SolidBrush(Color.Red), food.X, food.Y, s, s);
+            Food.FillEllipse(new SolidBrush(Color.Red), food.X, food.Y, sizesnake, sizesnake);
             Graphics Snake = e.Graphics;
-            for (int i = 0; i < l; i++)
+            for (int i = 0; i < lengthsnake; i++)
             {
-                Snake.FillEllipse(new SolidBrush(Color.Black), snake[i].X, snake[i].Y, s, s);
+                Snake.FillEllipse(new SolidBrush(Color.Black), snake[i].X, snake[i].Y, sizesnake, sizesnake);
             }
             for (int i = 298; i >= 0; i--)
             {
@@ -95,48 +95,46 @@ namespace snake
             if (way == "UP")
             {
                     snake[0].X = snake[1].X;
-                    snake[0].Y = snake[1].Y - s;
+                    snake[0].Y = snake[1].Y - sizesnake;
             }
             if (way == "Down")
             {
                     snake[0].X = snake[1].X;
-                    snake[0].Y = snake[1].Y + s;
+                    snake[0].Y = snake[1].Y + sizesnake;
             }
             if (way == "Left")
             {
-                    snake[0].X = snake[1].X - s;
+                    snake[0].X = snake[1].X - sizesnake;
                     snake[0].Y = snake[1].Y;
             }
             if (way == "Right")
             {
-                    snake[0].X = snake[1].X + s;
+                    snake[0].X = snake[1].X + sizesnake;
                     snake[0].Y = snake[1].Y;
             }
             
             if (snake[0].X == food.X && snake[0].Y == food.Y)
             {
-                l++;
-                Random r = new Random();
-                food.X = r.Next(0, 20) * s;
-                food.Y = r.Next(0, 15) * s;
                 score++;
-
+                lengthsnake++;
+                Random r = new Random();
+                food.X = r.Next(0, 20) * sizesnake;
+                food.Y = r.Next(0, 15) * sizesnake;
             }
-            for (int i = 1; i < l; i++)
+            for (int i = 1; i < lengthsnake; i++)
             {
                 if (snake[i].X == food.X && snake[i].Y == food.Y)
                 {
                     Random r = new Random();
-                    food.X = r.Next(0, 20) * s;
-                    food.Y = r.Next(0, 15) * s;
-                    score++;
+                    food.X = r.Next(0, 20) * sizesnake;
+                    food.Y = r.Next(0, 15) * sizesnake;
                 }
             }
             Restrictions();
         }
         private void Restrictions()
         {
-            if (snake[0].X+s > 800 || snake[0].Y+s > 600 || snake[0].X < 0  || snake[0].Y < 0)
+            if (snake[0].X+sizesnake > 800 || snake[0].Y+sizesnake > 600 || snake[0].X < 0  || snake[0].Y < 0)
             {
                 DialogResult result = MessageBox.Show("GAMEOVER. Вы хотите выйти?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1,
                        MessageBoxOptions.DefaultDesktopOnly);
@@ -145,7 +143,7 @@ namespace snake
                      Application.Exit();
                     using (StreamWriter txt = File.AppendText("Rec"))
                     {
-                        txt.WriteLine("   Score: " + score, '\n');
+                        txt.WriteLine('\t' + "Score: " + score, '\n');
                     }
                 }
                 else
@@ -153,13 +151,13 @@ namespace snake
                     Application.Restart();
                     using (StreamWriter txt = File.AppendText("Rec"))
                     {
-                        txt.WriteLine("   Score: " + score, '\n'); ;
+                        txt.WriteLine('\t' + "Score: " + score, '\n'); ;
                     }
                 }
             }
-            if (l > 4)
+            if (lengthsnake > 4)
             {
-                for (int i = 4; i < l; i++)
+                for (int i = 4; i < lengthsnake; i++)
                 {
                     if (snake[0].X == snake[i].X && snake[0].Y == snake[i].Y)
                     {
@@ -170,7 +168,7 @@ namespace snake
                             Application.Exit();
                             using (StreamWriter txt = File.AppendText("Rec"))
                             {
-                                txt.WriteLine("   Score: " + score, '\n');
+                                txt.WriteLine('\t' + "Score: " + score, '\n');
                             }
                         }
                         else
@@ -178,17 +176,26 @@ namespace snake
                             Application.Restart();
                             using (StreamWriter txt = File.AppendText("Rec"))
                             {
-                                txt.WriteLine("   Score: " + score, '\n');
+                                txt.WriteLine('\t' + "Score: " + score, '\n');
                             }
                         }
                     }
+                }
+            }
+            if (score == 297)
+            {
+                DialogResult ok = MessageBox.Show("Вы победили", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1,
+                                               MessageBoxOptions.DefaultDesktopOnly);
+                if(ok == DialogResult.OK)
+                {
+                    Application.Restart();
                 }
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            panel1.Invalidate();
+            gamepanel.Invalidate();
         }
     }
 }

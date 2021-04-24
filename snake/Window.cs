@@ -11,17 +11,19 @@ using System.Windows.Forms;
 
 namespace snake
 {
-    public partial class Form2: Form
+    public partial class Window: Form
     {
         bool flag;
-        public Form2()
+        public Window()
         {
             InitializeComponent();
+            recBox.Visible = false;
+            aBox.Visible = false;
         }
 
         private void NewGame_Click(object sender, EventArgs e)
         {
-            Form3 frm = new Form3();
+            Username frm = new Username();
             frm.Show();
             Hide();
         }

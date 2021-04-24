@@ -1,6 +1,6 @@
 ﻿namespace snake
 {
-    partial class Form3
+    partial class Username
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Username));
+            this.textBox = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.TextBox();
             this.ok = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
@@ -37,25 +37,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 292);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(305, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBox.Location = new System.Drawing.Point(89, 292);
+            this.textBox.MaxLength = 7;
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(196, 20);
+            this.textBox.TabIndex = 0;
             // 
             // name
             // 
-            this.name.Enabled = false;
             this.name.Location = new System.Drawing.Point(89, 252);
             this.name.Name = "name";
+            this.name.ReadOnly = true;
             this.name.Size = new System.Drawing.Size(100, 20);
             this.name.TabIndex = 1;
             this.name.Text = "Введите ваше имя";
             // 
             // ok
             // 
-            this.ok.Location = new System.Drawing.Point(422, 292);
+            this.ok.Location = new System.Drawing.Point(394, 289);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(75, 23);
             this.ok.TabIndex = 2;
@@ -83,7 +84,7 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // Form3
+            // Username
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -92,12 +93,12 @@
             this.Controls.Add(this.delete);
             this.Controls.Add(this.ok);
             this.Controls.Add(this.name);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form3";
+            this.Name = "Username";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Snake";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -108,7 +109,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.Button ok;
         private System.Windows.Forms.Button delete;
